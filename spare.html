@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>قصص شام</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #fffafc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ffd1dc;
+      color: #333;
+      text-align: center;
+      padding: 0.6rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .heart-icon {
+      font-size: 1.8rem;
+      color: red;
+      margin-top: 0.3rem;
+    }
+
+    nav {
+      text-align: center;
+      background-color: #ffe4e1;
+      padding: 1rem;
+    }
+
+    nav button {
+      background-color: #ffb6c1;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: background 0.3s;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    nav button:hover {
+      background-color: #ffa6b0;
+    }
+
+    .story-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #fff0f5;
+      border-radius: 10px;
+    }
+
+    .prompt {
+      background: #fff;
+      border: 1px solid #ffcad4;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: right;
+    }
+
+    .prompt img {
+      width: 100%;
+      max-width: 300px;
+      display: block;
+      margin: 10px auto;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #ffe4e1;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>قصص شام</h1>
+    <div class="heart-icon">❤️</div>
+  </header>
+
+  <nav>
+    <button onclick="showStory(0)"> قطقوط </button>
+  </nav>
+
+  <div class="story-container" id="storyBox">
+    <!-- Prompts will load here -->
+  </div>
+
+  <footer>
+    بقلم 💖 شام، ١٠ سنوات
+  </footer>
+
+  <script>
+    const stories = [
+      {
+        title: "قطقوط",
+        prompts: [
+          {
+            text: "إنها عائلة قطط سعيدة و مرحة و تتكون من الأب و الأم و أبنائهم الأربعة اللذين يعيشون في بيتهم الريفي الهادئ. الابن الأكبر كوتو و أخته الوسطى هي توتي و الأخ الأصغر هو قطوط و الأخت الصغرى هي كوتي.",
+            img: "images/scene1.png"
+          },
+          {
+            text: "ذات يوم بينما كانت القطط نائمة في أسرتها",
+            img: "images/scene2.png"
+          },
+          {
+            text: "فكان كوتو نائماً في سريره",
+            img: "images/scene3.png"
+          },
+          {
+            text: "و كانت توتي نائمةً في سريرها",
+            img: "images/scene4.png"
+          },
+          {
+            text: "و كانت كوتي نائمةً في سريرها",
+            img: "images/scene5.png"
+          },
+          {
+            text: "لم ينم قطوط بعد لأنه لا يحب النوم فسهر طوال الليل, حيث بقيت عيونه مفتوحة و هو على سريره* و لكنه كان خائفاً لكونه وحيداً في غرفته",
+            img: "images/scene6.png"
+          },
+          {
+            text: "ذهب قطقوط ليوقظ أخته كوتي، لكنها كانت غارقةً في النوم",
+            img: "images/scene7.png"
+          },
+          {
+            text: "فذهب قطقوط ليوقظ أخته توتي ",
+            img: "images/scene8.png"
+          },
+          {
+            text: "فقالت له توتي و هي تشعر بالنعاس و تكاد لا تفتح عينيها, دعني أنم قليلاً لم يأتِ الصباح بعد",
+            img: "images/scene8.png"
+          },
+          {
+            text: "قال قطوط لكني خائف و الجميع نائم و لا أحب النوم",
+            img: "images/scene8.png"
+          },
+          {
+            text: "قالت توتي حاول أن تنام قليلاً كي لا تخف",
+            img: "images/scene5.png"
+          },
+          {
+            text: "قال قطوط يائساً سأحاول",
+            img: "images/scene5.png"
+          },
+          {
+            text: "بقي قطوط يحاول النوم مرة بعد مرة إلا أنه لم يستطع أن ينام",
+            img: "images/scene5.png"
+          },
+          {
+            text: "و في اليوم التالي عندما أشرقت الشمس، استيقظت كل العائلة من النوم ما عدا قطوط",
+            img: "images/scene5.png"
+          },
+          {
+            text: "مرت كوتي من أمام غرفة أخيها قطوط و هي تتثاءب",
+            img: "images/scene5.png"
+          },
+          {
+            text: "ثم صاحت فجأة : وحش وحش ! أمي أنا خائفة",
+            img: "images/scene5.png"
+          },
+          {
+            text: "فأتى الجميع و قالوا ما بكِ يا كوتي هل حدث شيء ؟",
+            img: "images/scene5.png"
+          },
+          {
+            text: "قالت كوتي لقد رأيت وحشاً ينام في سرير قطوط و تحت عينيه لون شديد السواد",
+            img: "images/scene5.png"
+          },
+          {
+            text: "قال كوتو ساخراً ربما الوحش يشعر بالنعاس",
+            img: "images/scene5.png"
+          },
+          {
+            text: "قال الأب إذاَ الوحش يشعر بالنعاس, لقد عرفت من هو الوحش, اتبعوني",
+            img: "images/scene5.png"
+          },
+          {
+            text: " ذهب الجميع وراء الأب الذي توجه إلى غرفة قطوط فوجدوه نائماً في سريره و يشعر بالتعب كثيراً ",
+            img: "images/scene5.png"
+          },
+          {
+            text: "بعد ساعات استيقظ قطوط ",
+            img: "images/scene5.png"
+          },
+          {
+            text: " توجه نحو غرفة الجلوس حيث كانت الأم تحيك وشاحاً، * و القطط تلعب الغميضة معاً",
+            img: "images/scene5.png"
+          },
+          {
+            text: "قالت له أمه عندما رأته صباح الخير يا قطوط, يبدو أنك كنت تشعر بتعبٍ شديد بسبب السهر ",
+            img: "images/scene5.png"
+          },
+          {
+            text: "أجاب قطوط نعم يا أمي, و لن أسهر ثانية في حياتي ",
+            img: "images/scene5.png"
+          },
+          {
+            text: " قالت كوتي لماذا ؟  ",
+            img: "images/scene5.png"
+          },
+          {
+            text: " قال قطوط لأن الليل اقترب و لم ألعب بعد، من هو الذي يقضي يومه بالنوم بدل اللعب !؟ ",
+            img: "images/scene5.png"
+          }          
+        ]
+      }
+    ];
+
+    function showStory(index) {
+      const container = document.getElementById("storyBox");
+      const story = stories[index];
+
+      let content = `<h2 style="color:#d14e8c; text-align:center;">${story.title}</h2>`;
+      story.prompts.forEach((prompt, i) => {
+        content += `
+          <div class="prompt">
+            <p>${prompt.text}</p>
+            <img src="${prompt.img}" alt="فقرة ${i + 1}">
+          </div>
+        `;
+      });
+
+      container.innerHTML = content;
+    }
+
+    // Show first story by default
+    showStory(0);
+  </script>
+
+</body>
+
+</html>
