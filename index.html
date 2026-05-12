@@ -1,131 +1,280 @@
+# قطوط والوحش المتعب — صفحة HTML كاملة
 
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>قصص شام</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>قطوط والوحش المتعب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: #fffafc;
-      color: #333;
-      margin: 0;
-      padding: 0;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    header {
-      background-color: #ffd1dc;
-      color: #333;
-      text-align: center;
-      padding: 0.6rem;
+    body{
+      font-family:'Cairo',sans-serif;
+      background:linear-gradient(to bottom,#fff7ef,#ffe9d6);
+      color:#333;
+      overflow-x:hidden;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.4rem;
+    header{
+      background:linear-gradient(135deg,#ff914d,#ffb347);
+      color:white;
+      text-align:center;
+      padding:60px 20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.15);
     }
 
-    .heart-icon {
-      font-size: 1.8rem;
-      color: red;
-      margin-top: 0.3rem;
+    header h1{
+      font-size:48px;
+      margin-bottom:10px;
     }
 
-    nav {
-      text-align: center;
-      background-color: #ffe4e1;
-      padding: 1rem;
+    header p{
+      font-size:22px;
+      opacity:0.95;
     }
 
-    nav button {
-      background-color: #ffb6c1;
-      border: none;
-      padding: 10px 20px;
-      margin: 10px 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 20px;
-      transition: background 0.3s;
-      font-family: 'Cairo', sans-serif;
+    .container{
+      width:90%;
+      max-width:1000px;
+      margin:auto;
+      padding:50px 0;
     }
 
-    nav button:hover {
-      background-color: #ffa6b0;
+    .story-card{
+      background:white;
+      border-radius:30px;
+      overflow:hidden;
+      margin-bottom:40px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+      transition:0.4s;
     }
 
-    .story-container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: #fff0f5;
-      border-radius: 10px;
+    .story-card:hover{
+      transform:translateY(-5px);
     }
 
-    .prompt {
-      background: #fff;
-      border: 1px solid #ffcad4;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      padding: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      text-align: right;
+    .story-image{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      display:block;
     }
 
-    .prompt img {
-      width: 100%;
-      max-width: 300px;
-      display: block;
-      margin: 10px auto;
-      border-radius: 10px;
+    .story-content{
+      padding:35px;
+      line-height:2.2;
+      font-size:22px;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #ffe4e1;
-      font-size: 0.9rem;
-      margin-top: 2rem;
+    .story-content h2{
+      color:#ff914d;
+      margin-bottom:20px;
+      font-size:34px;
     }
 
-    .story-frame{
-    width:90%;
-    margin:auto;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 0 20px rgba(0,0,0,0.2);
-}
+    footer{
+      background:#222;
+      color:white;
+      text-align:center;
+      padding:30px;
+      margin-top:60px;
+    }
+
+    .btn-top{
+      position:fixed;
+      bottom:25px;
+      left:25px;
+      background:#ff914d;
+      color:white;
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-decoration:none;
+      font-size:26px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    @media(max-width:768px){
+      header h1{
+        font-size:36px;
+      }
+
+      .story-content{
+        font-size:19px;
+        padding:25px;
+      }
+
+      .story-image{
+        height:260px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>قصص شام</h1>
-    <div class="heart-icon">❤️</div>
+    <h1>قطوط و الوحش المتعب</h1>
+    <p> تأليف : شام عواد ✨</p>
+    <div class="story-card">
+      <img src="images/cover.png" class="story-image">
   </header>
 
-  <nav>
-    <button onclick="showStory(0)"> قطقوط </button>
-  </nav>
+  <div class="container">
 
-  <div class="story-frame">
-    <iframe 
-        src="https://gemini.google.com/share/cc60f28b0b84"
-        width="100%" 
-        height="700"
-        frameborder="0">
-    </iframe>
-</div>
+    <div class="story-card">
+      <img src="images/1.png" class="story-image">
+
+      <div class="story-content">
+        <p>
+          في ريفٍ جميلٍ و هادئ، تعيش عائلة من القطط السعيدة في بيتٍ خشبي صغير
+          <br>
+          الأب "مروان" والأم "ليلى" يحبان الاعتناء بحديقتهما الملونة، حيث تجري الفراشات بين الزهور الفواحة
+          <br>
+          كان الصباح يبدأ دائمًا بابتسامة دافئة منهما وهما يخططان ليومٍ مليء بالمرح مع صغارهما الأربعة.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="story-card">
+      <img src="images/2.png" class="story-image">
+
+      <div class="story-content">
+        <p>
+          لدى مروان و ليلى أربعة قطط صغيرة : الابن الأكبر "كوتو"،
+          والأخت الوسطى "توتي"، والأخ الأصغر "قطوط"،
+          والأخت الصغرى "كوتي".
+
+          كان "كوتو" و"توتي" يحبان قضاء وقتهما في الجري والقفز
+          في الباحة العشبية، ويلاحقان كرات الصوف الملونة بكل نشاط وحيوية.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="story-card">
+      <img src="images/3.png" class="story-image">
+        <p>
+          أما الصغيران "قطوط" و"كوتي" فكانا يملآن البيت بالضحك والمواء اللطيف.
+          كانت "كوتي" تحب مرافقة إخوتها في كل مكان، بينما كان "قطوط"
+          يحب اللعب بألعابه الصغيرة، لكنه كان يخشى شيئًا واحدًا فقط:
+          عندما يحين وقت غياب الشمس و حلول الظلام.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="story-card">
+      <img src="images/4.png" class="story-image">
+        <p>
+          عندما غربت الشمس، ذهبت الأم "ليلى" لتغطية الصغار ببطانياتهم الدافئة.
+          قبلت الجميع و قالت:
+          "تصبحون على خير يا صغاري".
+
+          نام الجميع بسرعة، لكن "قطوط" كان يتقلب في فراشه.
+          كان يشعر بالخوف من الظلام و لا يريد أن يغمض عينيه أبدًا.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="story-card">
+      <img src="images/5.png" class="story-image">
+        <p>
+          قرر "قطوط" ألا ينام.
+          جلس بجانب النافذة يراقب القمر والنجوم،
+          ويسمع أصوات الرياح و هي تصفر بين الأشجار.
+
+          استمر في السهر طوال الليل، يلعب بظله تارة
+          و يحدق في زوايا الغرفة تارة أخرى،
+          ظنًا منه أن السهر سيحميه من مخاوفه.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="story-card">
+      <img src="images/6.png" class="story-image">
+        <p>
+          أشرقت الشمس وبدأ يوم جديد، لكن "قطوط" لم يكن يشبه نفسه إطلاقًا.
+          كان فروه منفوشًا ومبعثرًا، وعيناه سوداوان من شدة التعب.
+
+          كان يمشي ببطء شديد وهو يترنح يمينًا ويسارًا وكأنه يمشي وهو يحلم.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="story-card">
+      <img src="images/7.png" class="story-image">
+        <p>
+          خرجت الأخت الصغيرة "كوتي" من غرفتها،
+          وعندما رأت "قطوط" المتعب صرخت بأعلى صوتها:
+          "وحش! وحش مرعب في بيتنا!"
+
+          ظنت أنه كائن غريب بسبب الهالات السوداء وشكله المبعثر،
+          فارتجفت من الخوف.
+        </p>
+      </div>
+    </div>
+
+   <div class="story-card">
+      <img src="images/8.png" class="story-image">
+        <p>
+        ركضت "كوتي" نحو الأب "مروان" و اختبأت خلفه و هي ترتجف من الرعب. 
+          قالت و هي تبكي و تغطي وجهها : "يا أبي، هناك وحش له عينان سوداوان و شعر مخيف يمشي في ممر بيتنا! أسرع يا أبي!". 
+          تعجب الأب "مروان" و ذهب ليرى ما الذي أخاف صغيرته. 
+        </p>
+      </div>
+    </div>
+
+   <div class="story-card">
+      <img src="images/9.png" class="story-image">
+        <p>
+          عندما وصل الأب إلى "الوحش"، 
+          و جد "قطوط" و هو يحاول بصعوبة أن يفتح عينيه المتعبتين. 
+          ضحك الأب بلطف و حمل "قطوط" بين ذراعيه الدافئتين. 
+          قال لـ "كوتي": "لا تقلقي يا صغيرتي، هذا ليس وحشاً، إنه أخوكِ قطوط الذي سهر طوال الليل ولم ينم".
+        </p>
+      </div>
+    </div>
   
+    <div class="story-card">
+      <img src="images/10.png" class="story-image">
+        <p>
+          بينما كان كوتو و توتي يقفزان و يمرحان في الخارج تحت أشعة الشمس،
+          كان "قطوط" وحيدًا في سريره يحاول النوم ليعوّض ما فاته.
+
+          شعر "قطوط" بالندم لأن السهر جعله يضيع وقت اللعب.
+          و تعلم درسًا مهمًا:
+          النوم المبكر هو سر النشاط.
+
+          و وعد نفسه ألا يسهر مجددًا.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
   <footer>
-    بقلم 💖 شام، ١٠ سنوات
+    جميع الحقوق محفوظة © قصص شام
   </footer>
 
-
-  <script>
-  </script>
+  <a href="#" class="btn-top">↑</a>
 
 </body>
-
 </html>
